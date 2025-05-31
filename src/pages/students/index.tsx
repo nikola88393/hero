@@ -321,14 +321,12 @@ const Students: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedDepartment(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Departments
-                </SelectItem>
-                {mockDepartments.map((dept) => (
-                  <SelectItem key={dept.id} value={dept.name}>
-                    {dept.name}
-                  </SelectItem>
-                ))}
+                {[
+                  <SelectItem key="all">All Departments</SelectItem>,
+                  ...mockDepartments.map((dept) => (
+                    <SelectItem key={dept.id}>{dept.name}</SelectItem>
+                  )),
+                ]}
               </Select>
 
               <Select
@@ -338,21 +336,11 @@ const Students: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedStatus(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Statuses
-                </SelectItem>
-                <SelectItem key="active" value="active">
-                  Active
-                </SelectItem>
-                <SelectItem key="on leave" value="on leave">
-                  On Leave
-                </SelectItem>
-                <SelectItem key="graduated" value="graduated">
-                  Graduated
-                </SelectItem>
-                <SelectItem key="suspended" value="suspended">
-                  Suspended
-                </SelectItem>
+                <SelectItem key="all">All Statuses</SelectItem>
+                <SelectItem key="active">Active</SelectItem>
+                <SelectItem key="on leave">On Leave</SelectItem>
+                <SelectItem key="graduated">Graduated</SelectItem>
+                <SelectItem key="suspended">Suspended</SelectItem>
               </Select>
             </div>
           </div>
@@ -504,9 +492,7 @@ const Students: React.FC = () => {
                     }
                   >
                     {mockDepartments.map((dept) => (
-                      <SelectItem key={dept.name} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
+                      <SelectItem key={dept.name}>{dept.name}</SelectItem>
                     ))}
                   </Select>
                   <Input
@@ -561,18 +547,10 @@ const Students: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="active" value="active">
-                      Active
-                    </SelectItem>
-                    <SelectItem key="on leave" value="on leave">
-                      On Leave
-                    </SelectItem>
-                    <SelectItem key="graduated" value="graduated">
-                      Graduated
-                    </SelectItem>
-                    <SelectItem key="suspended" value="suspended">
-                      Suspended
-                    </SelectItem>
+                    <SelectItem key="active">Active</SelectItem>
+                    <SelectItem key="on leave">On Leave</SelectItem>
+                    <SelectItem key="graduated">Graduated</SelectItem>
+                    <SelectItem key="suspended">Suspended</SelectItem>
                   </Select>
                 </div>
               </ModalBody>

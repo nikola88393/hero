@@ -234,6 +234,10 @@ const Grades: React.FC = () => {
     return "danger";
   };
 
+  const tableHeader = isInstructor
+    ? ["STUDENT", "COURSE", "GRADE", "ABSENCES", "LAST UPDATED", "ACTIONS"]
+    : ["STUDENT", "COURSE", "GRADE", "ABSENCES", "LAST UPDATED"];
+
   return (
     <div className="space-y-6">
       <div>
@@ -273,25 +277,20 @@ const Grades: React.FC = () => {
                   className="w-full max-w-xs"
                   onChange={(e) => setSelectedCourse(e.target.value)}
                 >
-                  <SelectItem key="all" value="all">
-                    All Courses
-                  </SelectItem>
                   {mockCourses.map((course) => (
-                    <SelectItem key={course.id} value={course.id}>
-                      {course.name}
-                    </SelectItem>
+                    <SelectItem key={course.id}>{course.name}</SelectItem>
                   ))}
                 </Select>
               </div>
 
               <Table aria-label="Grades table" selectionMode="none">
                 <TableHeader>
-                  <TableColumn>STUDENT</TableColumn>
-                  <TableColumn>COURSE</TableColumn>
-                  <TableColumn>GRADE</TableColumn>
-                  <TableColumn>ABSENCES</TableColumn>
-                  <TableColumn>LAST UPDATED</TableColumn>
-                  {isInstructor && <TableColumn>ACTIONS</TableColumn>}
+                  {[
+                    <SelectItem key="all">All Courses</SelectItem>,
+                    ...tableHeader.map((header) => (
+                      <TableColumn key={header}>{header}</TableColumn>
+                    )),
+                  ]}
                 </TableHeader>
                 <TableBody emptyContent="No grades found">
                   {filteredGrades.map((grade) => (
@@ -341,7 +340,7 @@ const Grades: React.FC = () => {
                         )}
                       </TableCell>
                       <TableCell>{grade.lastUpdated}</TableCell>
-                      {isInstructor && (
+                      {isInstructor ? (
                         <TableCell>
                           {editingGrade[grade.id] !== undefined ||
                           editingAbsence[grade.id] !== undefined ? (
@@ -372,6 +371,8 @@ const Grades: React.FC = () => {
                             </Button>
                           )}
                         </TableCell>
+                      ) : (
+                        <TableCell>No Actions</TableCell>
                       )}
                     </TableRow>
                   ))}

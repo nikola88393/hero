@@ -296,14 +296,12 @@ const Instructors: React.FC = () => {
               className="w-full max-w-xs"
               onChange={(e) => setSelectedDepartment(e.target.value)}
             >
-              <SelectItem key="all" value="all">
-                All Departments
-              </SelectItem>
-              {mockDepartments.map((dept) => (
-                <SelectItem key={dept.id} value={dept.name}>
-                  {dept.name}
-                </SelectItem>
-              ))}
+              {[
+                <SelectItem key="all">All Departments</SelectItem>,
+                ...mockDepartments.map((dept) => (
+                  <SelectItem key={dept.id}>{dept.name}</SelectItem>
+                )),
+              ]}
             </Select>
           </div>
         </CardBody>
@@ -444,9 +442,7 @@ const Instructors: React.FC = () => {
                     }
                   >
                     {mockDepartments.map((dept) => (
-                      <SelectItem key={dept.name} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
+                      <SelectItem key={dept.name}>{dept.name}</SelectItem>
                     ))}
                   </Select>
                   <Input
@@ -481,15 +477,9 @@ const Instructors: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="active" value="active">
-                      Active
-                    </SelectItem>
-                    <SelectItem key="on leave" value="on leave">
-                      On Leave
-                    </SelectItem>
-                    <SelectItem key="retired" value="retired">
-                      Retired
-                    </SelectItem>
+                    <SelectItem key="active">Active</SelectItem>
+                    <SelectItem key="on leave">On Leave</SelectItem>
+                    <SelectItem key="retired">Retired</SelectItem>
                   </Select>
                 </div>
                 <div className="mt-4">

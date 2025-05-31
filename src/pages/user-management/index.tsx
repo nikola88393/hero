@@ -309,24 +309,12 @@ const UserManagement: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedRole(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Roles
-                </SelectItem>
-                <SelectItem key="administrator" value="administrator">
-                  Administrator
-                </SelectItem>
-                <SelectItem key="rector" value="rector">
-                  Rector
-                </SelectItem>
-                <SelectItem key="department_head" value="department_head">
-                  Department Head
-                </SelectItem>
-                <SelectItem key="instructor" value="instructor">
-                  Instructor
-                </SelectItem>
-                <SelectItem key="student" value="student">
-                  Student
-                </SelectItem>
+                <SelectItem key="all">All Roles</SelectItem>
+                <SelectItem key="administrator">Administrator</SelectItem>
+                <SelectItem key="rector">Rector</SelectItem>
+                <SelectItem key="department_head">Department Head</SelectItem>
+                <SelectItem key="instructor">Instructor</SelectItem>
+                <SelectItem key="student">Student</SelectItem>
               </Select>
 
               <Select
@@ -336,18 +324,10 @@ const UserManagement: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedStatus(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Statuses
-                </SelectItem>
-                <SelectItem key="active" value="active">
-                  Active
-                </SelectItem>
-                <SelectItem key="inactive" value="inactive">
-                  Inactive
-                </SelectItem>
-                <SelectItem key="pending" value="pending">
-                  Pending
-                </SelectItem>
+                <SelectItem key="all">All Statuses</SelectItem>
+                <SelectItem key="active">Active</SelectItem>
+                <SelectItem key="inactive">Inactive</SelectItem>
+                <SelectItem key="pending">Pending</SelectItem>
               </Select>
             </div>
           </div>
@@ -469,21 +449,13 @@ const UserManagement: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="administrator" value="administrator">
-                      Administrator
-                    </SelectItem>
-                    <SelectItem key="rector" value="rector">
-                      Rector
-                    </SelectItem>
-                    <SelectItem key="department_head" value="department_head">
+                    <SelectItem key="administrator">Administrator</SelectItem>
+                    <SelectItem key="rector">Rector</SelectItem>
+                    <SelectItem key="department_head">
                       Department Head
                     </SelectItem>
-                    <SelectItem key="instructor" value="instructor">
-                      Instructor
-                    </SelectItem>
-                    <SelectItem key="student" value="student">
-                      Student
-                    </SelectItem>
+                    <SelectItem key="instructor">Instructor</SelectItem>
+                    <SelectItem key="student">Student</SelectItem>
                   </Select>
                   <Select
                     label="Department"
@@ -500,9 +472,7 @@ const UserManagement: React.FC = () => {
                     }
                   >
                     {mockDepartments.map((dept) => (
-                      <SelectItem key={dept.name} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
+                      <SelectItem key={dept.name}>{dept.name}</SelectItem>
                     ))}
                   </Select>
                   <Select
@@ -517,15 +487,9 @@ const UserManagement: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="active" value="active">
-                      Active
-                    </SelectItem>
-                    <SelectItem key="inactive" value="inactive">
-                      Inactive
-                    </SelectItem>
-                    <SelectItem key="pending" value="pending">
-                      Pending
-                    </SelectItem>
+                    <SelectItem key="active">Active</SelectItem>
+                    <SelectItem key="inactive">Inactive</SelectItem>
+                    <SelectItem key="pending">Pending</SelectItem>
                   </Select>
                 </div>
               </ModalBody>

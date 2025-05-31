@@ -323,9 +323,7 @@ const Curriculum: React.FC = () => {
               onChange={(e) => setSelectedDepartment(e.target.value)}
             >
               {mockDepartments.map((dept) => (
-                <SelectItem key={dept.name} value={dept.name}>
-                  {dept.name}
-                </SelectItem>
+                <SelectItem key={dept.name}>{dept.name}</SelectItem>
               ))}
             </Select>
 
@@ -337,7 +335,7 @@ const Curriculum: React.FC = () => {
               onChange={(e) => setSelectedSemester(e.target.value)}
             >
               {mockSemesters.map((semester) => (
-                <SelectItem key={semester.name} value={semester.name}>
+                <SelectItem key={semester.name}>
                   {semester.name} {semester.active && "(Active)"}
                 </SelectItem>
               ))}
@@ -519,12 +517,8 @@ const Curriculum: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="required" value="required">
-                      Required
-                    </SelectItem>
-                    <SelectItem key="elective" value="elective">
-                      Elective
-                    </SelectItem>
+                    <SelectItem key="required">Required</SelectItem>
+                    <SelectItem key="elective">Elective</SelectItem>
                   </Select>
                 </div>
               </ModalBody>

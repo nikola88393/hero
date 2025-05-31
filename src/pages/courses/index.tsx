@@ -263,6 +263,7 @@ const Courses: React.FC = () => {
       const newId = (
         Math.max(...courses.map((c) => parseInt(c.id))) + 1
       ).toString();
+
       setCourses([
         ...courses,
         {
@@ -359,14 +360,12 @@ const Courses: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedDepartment(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Departments
-                </SelectItem>
-                {mockDepartments.map((dept) => (
-                  <SelectItem key={dept.id} value={dept.name}>
-                    {dept.name}
-                  </SelectItem>
-                ))}
+                {[
+                  <SelectItem key="all">All Departments</SelectItem>,
+                  ...mockDepartments.map((dept) => (
+                    <SelectItem key={dept.name}>{dept.name}</SelectItem>
+                  )),
+                ]}
               </Select>
 
               <Select
@@ -376,21 +375,11 @@ const Courses: React.FC = () => {
                 className="w-full sm:w-40"
                 onChange={(e) => setSelectedStatus(e.target.value)}
               >
-                <SelectItem key="all" value="all">
-                  All Statuses
-                </SelectItem>
-                <SelectItem key="active" value="active">
-                  Active
-                </SelectItem>
-                <SelectItem key="upcoming" value="upcoming">
-                  Upcoming
-                </SelectItem>
-                <SelectItem key="completed" value="completed">
-                  Completed
-                </SelectItem>
-                <SelectItem key="cancelled" value="cancelled">
-                  Cancelled
-                </SelectItem>
+                <SelectItem key="all">All Statuses</SelectItem>
+                <SelectItem key="active">Active</SelectItem>
+                <SelectItem key="upcoming">Upcoming</SelectItem>
+                <SelectItem key="completed">Completed</SelectItem>
+                <SelectItem key="cancelled">Cancelled</SelectItem>
               </Select>
             </div>
           </div>
@@ -538,9 +527,7 @@ const Courses: React.FC = () => {
                     }
                   >
                     {mockDepartments.map((dept) => (
-                      <SelectItem key={dept.name} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
+                      <SelectItem key={dept.name}>{dept.name}</SelectItem>
                     ))}
                   </Select>
                   <Select
@@ -554,7 +541,7 @@ const Courses: React.FC = () => {
                     }
                   >
                     {mockInstructors.map((instructor) => (
-                      <SelectItem key={instructor.name} value={instructor.name}>
+                      <SelectItem key={instructor.name}>
                         {instructor.name}
                       </SelectItem>
                     ))}
@@ -623,18 +610,10 @@ const Courses: React.FC = () => {
                       })
                     }
                   >
-                    <SelectItem key="active" value="active">
-                      Active
-                    </SelectItem>
-                    <SelectItem key="upcoming" value="upcoming">
-                      Upcoming
-                    </SelectItem>
-                    <SelectItem key="completed" value="completed">
-                      Completed
-                    </SelectItem>
-                    <SelectItem key="cancelled" value="cancelled">
-                      Cancelled
-                    </SelectItem>
+                    <SelectItem key="active">Active</SelectItem>
+                    <SelectItem key="upcoming">Upcoming</SelectItem>
+                    <SelectItem key="completed">Completed</SelectItem>
+                    <SelectItem key="cancelled">Cancelled</SelectItem>
                   </Select>
                 </div>
               </ModalBody>

@@ -229,18 +229,10 @@ const Statistics: React.FC = () => {
               className="w-full max-w-xs"
               onChange={(e) => setSelectedDepartment(e.target.value)}
             >
-              <SelectItem key="all" value="all">
-                All Departments
-              </SelectItem>
-              <SelectItem key="cs" value="Computer Science">
-                Computer Science
-              </SelectItem>
-              <SelectItem key="math" value="Mathematics">
-                Mathematics
-              </SelectItem>
-              <SelectItem key="physics" value="Physics">
-                Physics
-              </SelectItem>
+              <SelectItem key="all">All Departments</SelectItem>
+              <SelectItem key="cs">Computer Science</SelectItem>
+              <SelectItem key="math">Mathematics</SelectItem>
+              <SelectItem key="physics">Physics</SelectItem>
             </Select>
 
             <Select
@@ -250,15 +242,9 @@ const Statistics: React.FC = () => {
               className="w-full max-w-xs"
               onChange={(e) => setSelectedSemester(e.target.value)}
             >
-              <SelectItem key="fall2023" value="Fall 2023">
-                Fall 2023
-              </SelectItem>
-              <SelectItem key="spring2023" value="Spring 2023">
-                Spring 2023
-              </SelectItem>
-              <SelectItem key="fall2022" value="Fall 2022">
-                Fall 2022
-              </SelectItem>
+              <SelectItem key="fall2023">Fall 2023</SelectItem>
+              <SelectItem key="spring2023">Spring 2023</SelectItem>
+              <SelectItem key="fall2022">Fall 2022</SelectItem>
             </Select>
           </div>
         </CardBody>

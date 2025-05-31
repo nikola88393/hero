@@ -53,7 +53,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setLoading(false);
   }, []);
 
-  const login = async (email: string, password: string) => {
+  // Simulated login and registration functions
+  // add password: string to login and register functions
+  const login = async (email: string) => {
     // This would be an API call in a real application
     // For demo purposes, we'll simulate a successful login
     setLoading(true);
@@ -94,7 +96,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setLoading(false);
   };
 
-  const register = async (name: string, email: string, password: string) => {
+  //add password: string to register function
+  const register = async (name: string, email: string) => {
     // This would be an API call in a real application
     setLoading(true);
 
